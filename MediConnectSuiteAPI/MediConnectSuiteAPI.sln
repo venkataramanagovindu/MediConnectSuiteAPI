@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediConnectSuiteAPI", "Medi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "..\Services\Services.csproj", "{9287BDB2-8997-431F-ACDB-76BF9323AB44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IServices", "..\IServices\IServices.csproj", "{7EAEE837-87F3-4012-92AF-B1674E5714BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9287BDB2-8997-431F-ACDB-76BF9323AB44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9287BDB2-8997-431F-ACDB-76BF9323AB44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9287BDB2-8997-431F-ACDB-76BF9323AB44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EAEE837-87F3-4012-92AF-B1674E5714BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EAEE837-87F3-4012-92AF-B1674E5714BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EAEE837-87F3-4012-92AF-B1674E5714BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EAEE837-87F3-4012-92AF-B1674E5714BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

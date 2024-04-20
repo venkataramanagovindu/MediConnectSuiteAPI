@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using IServices;
 
 namespace MediConnectSuiteAPI.Controllers
 {
@@ -10,17 +11,20 @@ namespace MediConnectSuiteAPI.Controllers
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
+        private IWeatherForeCast _iweatherForeCast;
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherForeCast weatherForeCast)
         {
             _logger = logger;
+            _iweatherForeCast = weatherForeCast;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _iweatherForeCast.GetString();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
