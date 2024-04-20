@@ -87,8 +87,6 @@ public partial class MediConnectSuiteContext : DbContext
             v => _provider.Decrypt(v)
             )
             .HasMaxLength(255);
-            //entity.Property(e => e.Password).HasMaxLength(255);
-
             entity.Property(e => e.State).HasMaxLength(50);
             entity.Property(e => e.Username).HasMaxLength(50);
             entity.Property(e => e.ZipCode).HasMaxLength(20);

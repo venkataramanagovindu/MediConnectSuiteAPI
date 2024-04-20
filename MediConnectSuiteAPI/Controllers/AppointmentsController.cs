@@ -22,9 +22,14 @@ namespace MediConnectSuiteAPI.Controllers
             //return Ok(await dbContext.Contacts.ToListAsync());
 
             await _appointmentsService.CreatePatient();
-            var paitent = await _appointmentsService.GetPatient();
-            return Ok("Hello"); 
+            return Ok("Hello");
+
+
+            //var paitent = await _appointmentsService.GetPatient();
+
         }
+
+
 
         //[HttpGet(Name = "CreatePatientsome")]
         //public async Task<IActionResult> CreatePatient()

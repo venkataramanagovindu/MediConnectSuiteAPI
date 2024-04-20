@@ -30,12 +30,6 @@ namespace Services
             return data;
         }
 
-        public async Task<Patient> GetPatient()
-        {
-            var data = await _context.Patients.FirstOrDefaultAsync();
-            return data;
-        }
-
         public async Task<int> CreatePatient()
         {
             var patient = new Patient
