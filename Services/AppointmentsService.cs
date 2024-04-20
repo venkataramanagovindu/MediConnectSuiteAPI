@@ -29,29 +29,5 @@ namespace Services
             var data = await _context.Appointments.FirstOrDefaultAsync();
             return data;
         }
-
-        public async Task<int> CreatePatient()
-        {
-            var patient = new Patient
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                DateOfBirth = new DateOnly(1990, 5, 15),
-                Gender = "Male",
-                ContactNumber = "1234567890",
-                Email = "johndoe@example.com",
-                Address = "123 Main St",
-                City = "Anytown",
-                State = "SomeState",
-                ZipCode = "12345",
-                Username = "johndoe",
-                Password = "hashed_password_here" // Remember to hash the password before storing it
-            };
-
-            _context.Patients.Add(patient);
-            await _context.SaveChangesAsync();
-
-            return patient.PatientId;
-        }
     }
 }

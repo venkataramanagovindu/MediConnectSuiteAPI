@@ -11,6 +11,5 @@ namespace IServices
     {
         public Task<Appointment> GetAppointment();
         public Task<Appointment> CreateAppointment();
-        public Task<int> CreatePatient();
     }
 }

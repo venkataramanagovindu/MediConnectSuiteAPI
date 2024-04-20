@@ -50,10 +50,6 @@ public partial class MediConnectSuiteContext : DbContext
             entity.HasOne(d => d.Doctor).WithMany(p => p.Appointments)
                 .HasForeignKey(d => d.DoctorId)
                 .HasConstraintName("FK__Appointme__Docto__45F365D3");
-
-            entity.HasOne(d => d.Patient).WithMany(p => p.Appointments)
-                .HasForeignKey(d => d.PatientId)
-                .HasConstraintName("FK__Appointme__Patie__44FF419A");
         });
 
         modelBuilder.Entity<Doctor>(entity =>
@@ -75,21 +71,17 @@ public partial class MediConnectSuiteContext : DbContext
             entity.HasKey(e => e.PatientId).HasName("PK__Patients__970EC346F4948621");
 
             entity.Property(e => e.PatientId).HasColumnName("PatientID");
-            entity.Property(e => e.Address).HasMaxLength(255);
-            entity.Property(e => e.City).HasMaxLength(100);
-            entity.Property(e => e.ContactNumber).HasMaxLength(20);
-            entity.Property(e => e.Email).HasMaxLength(100);
-            entity.Property(e => e.FirstName).HasMaxLength(50);
-            entity.Property(e => e.Gender).HasMaxLength(10);
-            entity.Property(e => e.LastName).HasMaxLength(50);
-            entity.Property(e => e.Password)
+            entity.Property(e => e.DoctorName).HasMaxLength(255);
+            entity.Property(e => e.AppointmentDate).HasMaxLength(100);
+            entity.Property(e => e.Treatment).HasMaxLength(20)
             .HasConversion(v => _provider.Encrypt(v),
             v => _provider.Decrypt(v)
             )
             .HasMaxLength(255);
-            entity.Property(e => e.State).HasMaxLength(50);
-            entity.Property(e => e.Username).HasMaxLength(50);
-            entity.Property(e => e.ZipCode).HasMaxLength(20);
+            entity.Property(e => e.Diagnosis).HasMaxLength(100);
+            entity.Property(e => e.NextAppointment).HasMaxLength(50);
+            entity.Property(e => e.Notes).HasMaxLength(10);
+            entity.Property(e => e.Status).HasMaxLength(50);
         });
 
         OnModelCreatingPartial(modelBuilder);

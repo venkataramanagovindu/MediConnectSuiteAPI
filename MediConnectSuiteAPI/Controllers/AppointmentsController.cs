@@ -17,11 +17,11 @@ namespace MediConnectSuiteAPI.Controllers
         [HttpGet(Name = "GetAppointment")]
         public async Task<IActionResult> GetAppointment()
         {
-            //var app = _appointmentsService.GetAppointment();
+            var app = _appointmentsService.GetAppointment();
             //var app = await _appointmentsService.GetPatient();
             //return Ok(await dbContext.Contacts.ToListAsync());
 
-            await _appointmentsService.CreatePatient();
+            //await _appointmentsService.CreatePatient()/*;*/
             return Ok("Hello");
 
 
