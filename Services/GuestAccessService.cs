@@ -61,16 +61,6 @@ namespace Services
         {
             try
             {
-
-                //var doctorExists = await _context.Doctors.AnyAsync(d => d.DoctorId == doctotId);
-
-
-                // Check if the token exists for the specified doctor and is active
-                //var linkTableEntry = await _context.LinkExpiries.FirstOrDefaultAsync(l =>
-                //    l.IsActive == true);
-
-
-
                 var data = await _context.Patients.FirstOrDefaultAsync(p => p.PatientId == 1);
 
                 var linkTableEntry = await _context.LinkExpiries.FirstOrDefaultAsync(l => l.IsActive == true);
