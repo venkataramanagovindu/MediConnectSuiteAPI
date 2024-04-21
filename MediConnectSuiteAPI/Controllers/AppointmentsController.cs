@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MediConnectSuiteAPI.Controllers
 {
-    [Route("api/Appointments")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AppointmentsController : ControllerBase
     {
@@ -14,19 +14,26 @@ namespace MediConnectSuiteAPI.Controllers
         {
             _appointmentsService = appointmentsService;
         }
-        [HttpGet(Name = "GetAppointment")]
-        public async Task<IActionResult> GetAppointment()
+        //[HttpGet(Name = "GetAppointment")]
+        //public async Task<IActionResult> GetAppointment()
+        //{
+        //    var app = _appointmentsService.GetAppointment();
+        //    return Ok(app);
+        //}
+
+        [HttpGet(Name = "GetAllAppointments")]
+        public async Task<IActionResult> GetAllAppointments()
         {
-            var app = _appointmentsService.GetAppointment();
-            //var app = await _appointmentsService.GetPatient();
-            //return Ok(await dbContext.Contacts.ToListAsync());
+            var patient = await _appointmentsService.GetAllAppointments();
 
-            //await _appointmentsService.CreatePatient()/*;*/
-            return Ok("Hello");
+            return Ok(patient);
+        }
 
-
-            //var paitent = await _appointmentsService.GetPatient();
-
+        [HttpPost(Name = "CreateAppointment")]
+        public async Task<IActionResult> CreateAppointment()
+        {
+            var app = await _appointmentsService.CreateAppointment();
+            return Ok(app);
         }
 
 

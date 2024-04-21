@@ -11,6 +11,7 @@ namespace IServices
     public interface IAppointmentsService
     {
         public Task<Appointment> GetAppointment();
-        public Task<Appointment> CreateAppointment();
+        public Task<List<Appointment>> GetAllAppointments();
+        public Task<int> CreateAppointment();
     }
 }

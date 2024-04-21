@@ -40,18 +40,17 @@ public partial class MediConnectSuiteApiContext : DbContext
     {
         modelBuilder.Entity<Appointment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Appointm__3214EC073B5AF9D5");
+            entity.HasKey(e => e.Id).HasName("PK__Appointm__3214EC07A4A7F281");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Status).HasMaxLength(50);
 
             entity.HasOne(d => d.Doctor).WithMany(p => p.Appointments)
                 .HasForeignKey(d => d.DoctorId)
-                .HasConstraintName("FK__Appointme__Docto__3E52440B");
+                .HasConstraintName("FK__Appointme__Docto__5629CD9C");
 
             entity.HasOne(d => d.Patient).WithMany(p => p.Appointments)
                 .HasForeignKey(d => d.PatientId)
-                .HasConstraintName("FK__Appointme__Patie__3D5E1FD2");
+                .HasConstraintName("FK__Appointme__Patie__571DF1D5");
         });
 
         modelBuilder.Entity<DiagnoseRecord>(entity =>
@@ -109,10 +108,7 @@ public partial class MediConnectSuiteApiContext : DbContext
             entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.Gender).HasMaxLength(10);
             entity.Property(e => e.LastName).HasMaxLength(50);
-            entity.Property(e => e.Password)
-            .HasConversion(v => _provider.Encrypt(v),
-            v => _provider.Decrypt(v)
-            ).HasMaxLength(255);
+            entity.Property(e => e.Password).HasMaxLength(255);
             entity.Property(e => e.State).HasMaxLength(50);
             entity.Property(e => e.Username).HasMaxLength(50);
             entity.Property(e => e.ZipCode).HasMaxLength(20);
@@ -126,7 +122,7 @@ public partial class MediConnectSuiteApiContext : DbContext
 
             entity.HasOne(d => d.DiagnoseRecords).WithMany(p => p.RecordPermissions)
                 .HasForeignKey(d => d.DiagnoseRecordsId)
-                .HasConstraintName("FK__RecordPer__Diagn__52593CB8");
+                .HasConstraintName("FK__RecordPer__Diagn__5BE2A6F2");
 
             entity.HasOne(d => d.LinkExpiry).WithMany(p => p.RecordPermissions)
                 .HasForeignKey(d => d.LinkExpiryId)
@@ -141,23 +137,11 @@ public partial class MediConnectSuiteApiContext : DbContext
             entity.Property(e => e.BloodPressure).HasMaxLength(20);
             entity.Property(e => e.BreathingRate).HasMaxLength(10);
             entity.Property(e => e.DocumentType).HasMaxLength(100);
-            entity.Property(e => e.HeartRate).
-            HasConversion(v => _provider.Encrypt(v),
-            v => _provider.Decrypt(v)
-            ).HasMaxLength(10);
-            entity.Property(e => e.HospitalName)
-            .HasConversion(v => _provider.Encrypt(v),
-            v => _provider.Decrypt(v)
-            ).HasMaxLength(100);
-            entity.Property(e => e.SpO2)
-            .HasConversion(v => _provider.Encrypt(v),
-            v => _provider.Decrypt(v)
-            ).HasMaxLength(10);
+            entity.Property(e => e.HeartRate).HasMaxLength(10);
+            entity.Property(e => e.HospitalName).HasMaxLength(100);
+            entity.Property(e => e.SpO2).HasMaxLength(10);
             entity.Property(e => e.Status).HasMaxLength(50);
-            entity.Property(e => e.Temperature)
-            .HasConversion(v => _provider.Encrypt(v),
-            v => _provider.Decrypt(v)
-            ).HasMaxLength(20);
+            entity.Property(e => e.Temperature).HasMaxLength(20);
             entity.Property(e => e.UploadedBy).HasMaxLength(100);
 
             entity.HasOne(d => d.Patient).WithMany(p => p.Vitals)
