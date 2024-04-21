@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class MailService
+    public class MailService: IMailService
     {
         public void Send(MailMessage message)
         {
