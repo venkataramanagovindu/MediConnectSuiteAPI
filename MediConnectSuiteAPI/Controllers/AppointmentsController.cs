@@ -10,7 +10,7 @@ namespace MediConnectSuiteAPI.Controllers
     public class AppointmentsController : ControllerBase
     {
         IAppointmentsService _appointmentsService;
-        public AppointmentsController(IAppointmentsService appointmentsService) 
+        public AppointmentsController(IAppointmentsService appointmentsService)
         {
             _appointmentsService = appointmentsService;
         }

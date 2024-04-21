@@ -11,9 +11,9 @@ namespace Services
 {
     public class PatientService: IPatientService
     {
-        MediConnectSuiteContext _context;
+        MediConnectSuiteApiContext _context;
 
-        public PatientService(MediConnectSuiteContext context)
+        public PatientService(MediConnectSuiteApiContext context)
         {
             _context = context;
         }
@@ -26,8 +26,16 @@ namespace Services
 
         public async Task<int> CreatePatient(Patient patient)
         {
-            _context.Patients.Add(patient);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Patients.Add(patient);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
 
             return patient.PatientId;
         }

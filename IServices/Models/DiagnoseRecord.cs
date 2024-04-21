@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace IServices.Models;
 
-public partial class Appointment
+public partial class DiagnoseRecord
 {
     public int Id { get; set; }
 
@@ -13,11 +13,17 @@ public partial class Appointment
 
     public DateOnly? AppointmentDate { get; set; }
 
-    public string? Status { get; set; }
+    public string? Treatment { get; set; }
 
-    public DateOnly? NextAppointment { get; set; }
+    public string? Diagnosis { get; set; }
+
+    public string? Notes { get; set; }
+
+    public string? Status { get; set; }
 
     public virtual Doctor? Doctor { get; set; }
 
     public virtual Patient? Patient { get; set; }
+
+    public virtual ICollection<RecordPermission> RecordPermissions { get; set; } = new List<RecordPermission>();
 }

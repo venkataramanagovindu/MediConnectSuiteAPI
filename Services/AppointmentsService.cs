@@ -1,5 +1,7 @@
 ﻿using IServices;
 using IServices.Models;
+
+//using IServices.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,9 +14,9 @@ namespace Services
 {
     public class AppointmentsService : IAppointmentsService
     {
-        MediConnectSuiteContext _context;
+        MediConnectSuiteApiContext _context;
 
-        public AppointmentsService(MediConnectSuiteContext context)
+        public AppointmentsService(MediConnectSuiteApiContext context)
         {
             _context = context;
         }

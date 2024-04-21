@@ -20,7 +20,7 @@ namespace MediConnectSuiteAPI.Controllers
         public async Task<IActionResult> GetPatient(int id)
         {
             var patient = await _patientService.GetPatient(id);
-            
+
             return Ok(patient);
         }
 
