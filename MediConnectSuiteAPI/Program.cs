@@ -20,7 +20,6 @@ builder.Services.AddScoped<IDiagnoseRecords, DiagnoseRecordsService>();
 builder.Services.AddScoped<IVitalsService, VitalsService>();
 builder.Services.AddScoped<IGuestAccessService, GuestAccessService>();
 builder.Services.AddScoped<IMailService, MailService>();
-//builder.Services.AddScoped<IEncryptionProvider2, EncryptionProvider>();
 builder.Services.AddSingleton<IEncryptionProvider2>(new EncryptionProvider("YourEncryptionKe", "YourEncryptionKe"));
 
 
